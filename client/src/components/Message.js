@@ -6,6 +6,7 @@ export default class Message extends Component {
     return (
       <div>
         {message}
+        
       </div>
     )
   }

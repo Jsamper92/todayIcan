@@ -7,7 +7,8 @@ export default class Login extends Component {
 
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      imgUrl:''
     }
 
     this.authService = new AuthService();
@@ -32,7 +33,9 @@ export default class Login extends Component {
     return (
       <div>
         <h2>Login</h2>
-        <form onSubmit={this.handleFormSubmit}>
+
+      
+        <form className="loginSignup" onSubmit={this.handleFormSubmit}>
           <label>Username</label>
           <input type="text" name="username" onChange={e => this.handleChange(e)} />
 
@@ -41,6 +44,8 @@ export default class Login extends Component {
 
           <input type="submit" value="Login"/>
         </form>
+
+
       </div>
     )
   }
