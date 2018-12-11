@@ -11,6 +11,7 @@ const bcryptSalt = 10;
 
 authRoutes.post("/login", function (req, res, next) {
   passport.authenticate('local', function (err, user, info) {
+    
     if (err) {
       return res.status(500).json({
         message: "Error login"
@@ -39,7 +40,7 @@ authRoutes.post("/signup", uploadCload.single("photo"), (req, res, next) => {
     username,
     password
   } = req.body;
-  const pictureUrl = req.file.url;
+  const pictureUrl = req.body.url;
 
 
   if (username === "" || password === "") {
