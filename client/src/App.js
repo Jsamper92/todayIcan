@@ -3,6 +3,7 @@ import "./App.css";
 import Signup from "./components/auth/Signup";
 import Login from "./components/auth/Login";
 import VistaPrincipal from "./components/VistaPrincipal";
+import NavBar from './components/NavBar'
 import AuthService from "./components/auth/AuthService";
 import { Route, Link } from "react-router-dom";
 
@@ -38,7 +39,6 @@ class App extends Component {
   render() {
     const vistaprincipal = this.state.user ? (
       <div>
-        
         <p>Hola {this.state.user.username}</p>
         <button onClick={this.logout}>Logout</button>
       </div>
@@ -53,11 +53,10 @@ class App extends Component {
     return (
       <div className="App">
         {vistaprincipal}
-        <VistaPrincipal  user={this.state.user} />
-        <Route
-          path="/signup"
-          render={() => <Signup getUser={this.getUser} />}
-        />
+        <NavBar/>
+        
+        <VistaPrincipal user={this.state.user} />
+        <Route path="/signup" render={() => <Signup getUser={this.getUser} />}/>
         <Route path="/login" render={() => <Login getUser={this.getUser} />} />
       </div>
     );

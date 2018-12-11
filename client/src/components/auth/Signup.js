@@ -31,9 +31,10 @@ export default class Signup extends Component {
 
   handleChange = (e) => {
     const {name, value} = e.target;
-
+    
     if(name === "photo") {
       this.setState({...this.state, photo: e.target.files[0]})
+      
     } else {
       this.setState({...this.state, [name]: value});
     }
