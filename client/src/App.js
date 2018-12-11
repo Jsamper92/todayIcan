@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Signup from "./components/auth/Signup";
 import Login from "./components/auth/Login";
-import Message from "./components/Message";
+import VistaPrincipal from "./components/VistaPrincipal";
 import AuthService from "./components/auth/AuthService";
 import { Route, Link } from "react-router-dom";
 
@@ -36,8 +36,9 @@ class App extends Component {
   };
 
   render() {
-    const welcome = this.state.user ? (
+    const vistaprincipal = this.state.user ? (
       <div>
+        
         <p>Hola {this.state.user.username}</p>
         <button onClick={this.logout}>Logout</button>
       </div>
@@ -51,8 +52,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        {welcome}
-        <Message user={this.state.user} />
+        {vistaprincipal}
+        <VistaPrincipal  user={this.state.user} />
         <Route
           path="/signup"
           render={() => <Signup getUser={this.getUser} />}
