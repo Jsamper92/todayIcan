@@ -1,63 +1,25 @@
-import React, { Component } from "react";
-import "./App.css";
-import Signup from "./components/auth/Signup";
-import Login from "./components/auth/Login";
-import VistaPrincipal from "./components/VistaPrincipal";
-import NavBar from './components/NavBar'
-import AuthService from "./components/auth/AuthService";
-import { Route, Link } from "react-router-dom";
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
 
 class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      user: null
-    };
-
-    this.authService = new AuthService();
-
-    this.fetchUser();
-  }
-
-  fetchUser = () => {
-    this.authService
-      .loggedin()
-      .then(user => this.setState({ ...this.state, user }));
-  };
-
-  getUser = user => {
-    this.setState({ ...this.state, user });
-  };
-
-  logout = () => {
-    this.authService
-      .logout()
-      .then(() => this.setState({ ...this.state, user: null }));
-  };
-
   render() {
-    const vistaprincipal = this.state.user ? (
-      <div>
-        <p>Hola {this.state.user.username}</p>
-        <button onClick={this.logout}>Logout</button>
-      </div>
-    ) : (
-      <div>
-        <p>No user</p>
-        <Link to="/">Home</Link> - <Link to="/signup">Signup</Link> -{" "}
-        <Link to="/login">Login</Link>
-      </div>
-    );
-
     return (
       <div className="App">
-        {vistaprincipal}
-        <NavBar/>
-        
-        <VistaPrincipal user={this.state.user} />
-        <Route path="/signup" render={() => <Signup getUser={this.getUser} />}/>
-        <Route path="/login" render={() => <Login getUser={this.getUser} />} />
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </header>
       </div>
     );
   }
