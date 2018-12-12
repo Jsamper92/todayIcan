@@ -7,6 +7,7 @@ import NavBar from './components/NavBar'
 import AuthService from "./components/auth/AuthService";
 import { Route, Link } from "react-router-dom";
 
+
 class App extends Component {
   constructor() {
     super();
