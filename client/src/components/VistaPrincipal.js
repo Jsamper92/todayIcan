@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./VistaPrincipal.css";
+import CreateEvent from './event/CreateEvent'
 export default class VistaPrincipal extends Component {
   constructor(props) {
     super(props)
@@ -13,7 +14,8 @@ export default class VistaPrincipal extends Component {
     );
 
     
-    return <div className="bodyMain">
+    return( 
+        <div className="bodyMain">
         <div className="sidebar">
         {this.props.user && <img src={this.props.user && this.props.user.pictureUrl} alt="User name" className="img-circle img-user" />}
           {vistaprincipal}
@@ -29,39 +31,10 @@ export default class VistaPrincipal extends Component {
         </div>
 
         <div className="content">
-          <div className="cardEvent">
-            <div className="row">
-              <div className="col-xs-3 col-sm-2">
-                <a title="profile" />
-              </div>
-
-              <div className="info-user">
-                <h3>
-                  <a href="personal-profile.html" title="Profile" />
-                </h3>
-                <p>
-                  <i>2h</i>
-                </p>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="data-post">
-                <p>Crear evento</p>
-                <form>
-                  <input placeholder="Evento" />
-                </form>
-                <div className="reaction">
-                  <p>imagen</p>
-                </div>
-                <div className="comments">
-                  <div>Comments</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <CreateEvent/>
         </div>
         
-      </div>;
+      </div>
+      )
   }
 }

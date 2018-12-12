@@ -3,22 +3,18 @@ import axios from 'axios'
 class EventService {
   constructor() {
     this.service = axios.create({
-      baseURL: "http://localhost:5000/api",
+      baseURL: "http://localhost:5000",
       withCredentials: true
     });
   }
 
-  createEvent = user => {
+  createEvent = event => {
     //axios.post("http://localhost:5000/api/auth/signup", {user}, {withCredentials: true})
     const formData = new FormData();
-    Object.keys(user).forEach(key => formData.append(key, user[key]));
+    Object.keys(event).forEach(key => {formData.append(key, event[key])});
+  
 
-    return this.service
-        .post("/createEvent", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      })
+    return this.service.post("/createEvent", event)
       .then(response => response.data);
   };
 }

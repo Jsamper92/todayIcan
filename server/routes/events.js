@@ -3,14 +3,19 @@ const Event = require("../models/Event");
 const authRoutes = express.Router();
 
 authRoutes.post("/createEvent", (req, res, next) => {
+    const {
+        description,
+        city
+    } = req.body;
+    console.log(req.body)
     const event = new Event({
         author: req.user.id,
-        description: req.body.description,
-        city: req.body.city,
+        description,
+        city
     });
 
-
     event.save(err => {
+        
         if (err) {
             next(null, false, {
                 message: event.errors
