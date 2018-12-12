@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import EventService from './EventService'
+import AllEvents from './allEvents'
 import '../VistaPrincipal.css'
 export default class CreateEvent extends Component {
     constructor(){
@@ -12,9 +13,6 @@ export default class CreateEvent extends Component {
 
         this.eventService = new EventService();
     }
-
-    
-
     getEvent = event => {
         this.setState({ ...this.state,event});
     };
@@ -70,6 +68,10 @@ export default class CreateEvent extends Component {
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <div className="allEvents">
+                <AllEvents/>
             </div>
       </div>
     )

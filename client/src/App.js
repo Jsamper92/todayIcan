@@ -5,7 +5,8 @@ import Login from "./components/auth/Login";
 import VistaPrincipal from "./components/VistaPrincipal";
 import NavBar from './components/NavBar'
 import AuthService from "./components/auth/AuthService";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
+
 
 
 class App extends Component {
@@ -42,6 +43,13 @@ class App extends Component {
       <div>
         <p>Hola {this.state.user.username}</p>
         <button onClick={this.logout}>Logout</button>
+       
+        <Switch>
+            <Route path="/main" component={VistaPrincipal} />
+        </Switch>
+
+        <NavBar logout={this.logout}/>
+        <VistaPrincipal user={this.state.user} />
       </div>
     ) : (
       <div>
@@ -54,12 +62,8 @@ class App extends Component {
     return (
       <div className="App">
         {vistaprincipal}
-        <NavBar logout={this.logout}/>
-        
-        <VistaPrincipal user={this.state.user} />
-        
-        <Route path="/signup" render={() => <Signup getUser={this.getUser} />}/>
-        <Route path="/login" render={() => <Login getUser={this.getUser} />} />
+        <Route exact path="/signup" render={() => <Signup getUser={this.getUser} />}/>
+        <Route exact path="/login" render={() => <Login getUser={this.getUser} />} />
       </div>
     );
   }

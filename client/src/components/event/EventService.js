@@ -17,6 +17,18 @@ class EventService {
     return this.service.post("/createEvent", event)
       .then(response => response.data);
   };
+
+  showEvents = showEvent =>{
+    return axios.get('http://localhost:5000/showEvent/5c1120b8546f7c92899c1617', {
+      showEvent
+    }, {
+      withCredentials: true
+    })
+    .then(res=> res)
+    //console.log(showEvent)
+  }
+
+
 }
 
 

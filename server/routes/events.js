@@ -1,14 +1,11 @@
 const express = require("express");
-const Event = require("../models/Event");
+const Events = require("../models/Event");
 const authRoutes = express.Router();
 
 authRoutes.post("/createEvent", (req, res, next) => {
-    const {
-        description,
-        city
-    } = req.body;
+    const {description,city} = req.body;
     console.log(req.body)
-    const event = new Event({
+    const event = new Events({
         author: req.user.id,
         description,
         city
@@ -24,6 +21,18 @@ authRoutes.post("/createEvent", (req, res, next) => {
             res.status(200).json(event);
         }
     });
+});
+
+authRoutes.get("/showEvent/:id", (req, res, next) => {
+    var eventId = req.params.id;
+
+    Events.findById(eventId)
+        .then(event => {
+            res.status(200).json(event);
+        })
+        .catch(err => {
+            console.error(err);
+        })
 });
 
 
