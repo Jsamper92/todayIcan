@@ -54,9 +54,10 @@ class App extends Component {
     return (
       <div className="App">
         {vistaprincipal}
-        <NavBar/>
+        <NavBar logout={this.logout}/>
         
         <VistaPrincipal user={this.state.user} />
+        
         <Route path="/signup" render={() => <Signup getUser={this.getUser} />}/>
         <Route path="/login" render={() => <Login getUser={this.getUser} />} />
       </div>

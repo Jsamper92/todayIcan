@@ -26,13 +26,11 @@ export default class NavBar extends Component {
     return (
       <div>
           <header>
-            <form method="GET">
-                    <input name="q" type="text" placeholder="Search.."/>
-            </form>
+            
             <div></div>
             <div></div>
             <div></div>
-            <button onClick={this.logout}>logout</button>
+            <button onClick={()=>this.props.logout()}>logout</button>
           </header>
       </div>
     )
