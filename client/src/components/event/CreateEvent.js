@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import EventService from './EventService'
 import AllEvents from './allEvents'
 import '../VistaPrincipal.css'
+import { Route, Link, Switch } from "react-router-dom";
+import EvenDetail from './eventDetail';
+
 export default class CreateEvent extends Component {
     constructor(){
         super();
@@ -71,7 +74,10 @@ export default class CreateEvent extends Component {
             </div>
             
             <div className="allEvents">
-                <AllEvents/>
+            <Switch>
+                     
+                    {(this.state) ? <AllEvents event={this.state} /> : <p>Loading...</p>}
+            </Switch>           
             </div>
       </div>
     )

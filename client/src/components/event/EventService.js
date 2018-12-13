@@ -29,6 +29,16 @@ class EventService {
     
   }
 
+  showEventId = (showEventId,evento) => {
+
+    return axios.get(`http://localhost:5000/showEvent/${showEventId}`, {
+        showEventId
+      }, {
+        withCredentials: true
+      })
+      .then(res => res)
+  }
+
 
 }
 

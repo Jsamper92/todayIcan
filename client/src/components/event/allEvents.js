@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import axios from "axios";
 import BoxEvent from './boxEvent'
+
 import EventService from './EventService'
 
 export default class allEvents extends Component {
@@ -16,13 +16,12 @@ export default class allEvents extends Component {
     retrive = () => {
       this.eventService.showEvents()
       .then(res=>{
-        console.log(res.data)
         this.setState({...this.state, allEvents:[res.data]})
-        console.log(this.state.allEvents)
+       
       })
-
     }
 
+    
     componentWillMount() {
       this.retrive()
     }
@@ -35,7 +34,7 @@ export default class allEvents extends Component {
           this.state.allEvents && this.state.allEvents[0].map((elem,index) => {
 
           return (
-           <BoxEvent key={index} elem={elem}/>
+             <BoxEvent key={index} elem={elem}/>
           )
         })}
        
