@@ -9,27 +9,29 @@ class EventService {
   }
 
   createEvent = event => {
-    //axios.post("http://localhost:5000/api/auth/signup", {user}, {withCredentials: true})
+    
     const formData = new FormData();
-    Object.keys(event).forEach(key => {formData.append(key, event[key])});
-  
+    Object.keys(event).forEach(key => {
+      formData.append(key, event[key])
+    });
+
 
     return this.service.post("/createEvent", event)
       .then(response => response.data);
   };
 
-  showEvents = (showEvent) =>{
-    
+  showEvents = (showEvent) => {
+
     return axios.get('http://localhost:5000/showEvent', {
-      showEvent
-    }, {
-      withCredentials: true
-    })
-    .then(res=> res)
-    
+        showEvent
+      }, {
+        withCredentials: true
+      })
+      .then(res => res)
+
   }
 
-  showEventId = (showEventId,evento) => {
+  showEventId = (showEventId, evento) => {
 
     return axios.get(`http://localhost:5000/showEvent/${showEventId}`, {
         showEventId

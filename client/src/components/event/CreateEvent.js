@@ -3,7 +3,7 @@ import EventService from './EventService'
 import AllEvents from './allEvents'
 import '../VistaPrincipal.css'
 import { Route, Link, Switch } from "react-router-dom";
-import EvenDetail from './eventDetail';
+
 
 export default class CreateEvent extends Component {
     constructor(){
