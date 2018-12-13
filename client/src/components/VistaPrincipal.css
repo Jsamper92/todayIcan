@@ -42,5 +42,9 @@ background-color: white;
 }
 
 *{
-            background: #edf1f5;
+        background: #edf1f5;
+}
+
+.boxEvent{
+        margin: 10px;
 }

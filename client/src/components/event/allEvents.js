@@ -11,14 +11,16 @@ export default class allEvents extends Component {
         }
         this.eventService = new EventService();
     }
-   
+    
 
     retrive = () => {
       this.eventService.showEvents()
       .then(res=>{
         console.log(res.data)
         this.setState({...this.state, allEvents:[res.data]})
+        console.log(this.state.allEvents)
       })
+
     }
 
     componentWillMount() {
@@ -26,10 +28,11 @@ export default class allEvents extends Component {
     }
     
   render() {
+    
     return (
       <div className="cardEvent">
         {
-          this.state.allEvents && this.state.allEvents.map((elem,index) => {
+          this.state.allEvents && this.state.allEvents[0].map((elem,index) => {
 
           return (
            <BoxEvent key={index} elem={elem}/>

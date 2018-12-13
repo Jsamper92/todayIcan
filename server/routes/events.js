@@ -23,12 +23,13 @@ authRoutes.post("/createEvent", (req, res, next) => {
     });
 });
 
-authRoutes.get("/showEvent/:id", (req, res, next) => {
-    var eventId = req.params.id;
-
-    Events.findById(eventId)
+authRoutes.get("/showEvent", (req, res, next) => {
+    
+    Events.find()
         .then(event => {
+            
             res.status(200).json(event);
+            
         })
         .catch(err => {
             console.error(err);

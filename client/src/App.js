@@ -63,7 +63,7 @@ class App extends Component {
       <div className="App">
         {vistaprincipal}
         <Route exact path="/signup" render={() => <Signup getUser={this.getUser} />}/>
-        <Route exact path="/login" render={() => <Login getUser={this.getUser} />} />
+        {!this.state.user &&  <Route exact path="/login" render={() => <Login getUser={this.getUser} />} />}
       </div>
     );
   }

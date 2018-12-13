@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import '../VistaPrincipal.css';
 export default class boxEvent extends Component {
    
   render() {

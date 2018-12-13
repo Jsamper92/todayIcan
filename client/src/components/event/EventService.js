@@ -18,14 +18,15 @@ class EventService {
       .then(response => response.data);
   };
 
-  showEvents = showEvent =>{
-    return axios.get('http://localhost:5000/showEvent/5c1120b8546f7c92899c1617', {
+  showEvents = (showEvent) =>{
+    
+    return axios.get('http://localhost:5000/showEvent', {
       showEvent
     }, {
       withCredentials: true
     })
     .then(res=> res)
-    //console.log(showEvent)
+    
   }
 
 

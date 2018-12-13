@@ -58,7 +58,7 @@ export default class CreateEvent extends Component {
                         <form onSubmit={this.handleFormSubmit}>
                             <input type="text" name="description" placeholder="title" onChange={e => this.handleChange(e)} />
                             <input type="text" name="city" placeholder="title" onChange={e => this.handleChange(e)} />
-                            <input type="submit" value="createEvent"/>
+                            <input type="submit" value="createEvent" onClick={e => this.handleChange(e)}/>
                         </form>
                         <div className="reaction">
                             <p>imagen</p>
