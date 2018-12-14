@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import EventService from "./EventService";
 
 
 const display = {
@@ -14,11 +15,28 @@ export default class ModalMoreInfo extends React.Component {
     this.toggle = this.toggle.bind(this);
 
     this.state = {
-      toggle: false
+      toggle: false,
+      allEventsModal:null
     }
+
+    this.eventService = new EventService();
   }
 
-  toggle(event) {
+  retrive = () => {
+      this.eventService.showEvents()
+      .then(res=>{
+        
+        this.setState({...this.state, allEventsModal:[res.data]})
+        
+      })
+    }
+
+    
+    componentWillMount() {
+      this.retrive()
+    }
+
+  toggle() {
     this.setState(prevState => ({
       toggle: !prevState.toggle
     }));
@@ -29,11 +47,23 @@ export default class ModalMoreInfo extends React.Component {
     modal.push(
       <div className="modal" style={this.state.toggle ? display : hide}>
       <div className="modal-content">
-        <h4></h4>
-        <p>A bunch of text</p>
+      {/* {this.state.allEventsModal && this.state.allEventsModal.map((elem,index) => {
+        
+        return(
+          
+          <p>{this.elem}</p>
+        
+        
+          )
+        }
+        )
+        
+        
+      } */}
+      <p>texto</p>
       </div>
       <div className="modal-footer">
-        <a className="btn" onClick={this.toggle}>cLOSE</a>
+        <a className="btn" onClick={this.toggle}>Close</a>
       </div>
     </div>
     );

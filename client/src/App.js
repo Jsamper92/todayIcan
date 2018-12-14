@@ -56,6 +56,7 @@ class App extends Component {
         <p>No user</p>
         <Link to="/">Home</Link> - <Link to="/signup">Signup</Link> -{" "}
         <Link to="/login">Login</Link>
+        
       </div>
     );
 

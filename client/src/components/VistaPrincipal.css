@@ -41,10 +41,12 @@ background-color: white;
         width:90%;
 }
 
-*{
-        background: #edf1f5;
-}
-
 .boxEvent{
         margin: 10px;
 }
+
+.map{
+        width: 100%;
+        height: 300px;
+}
+

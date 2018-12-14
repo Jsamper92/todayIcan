@@ -3,7 +3,7 @@ import EventService from './EventService'
 import AllEvents from './allEvents'
 import '../VistaPrincipal.css'
 import { Route, Link, Switch } from "react-router-dom";
-
+import MapContainer from './MapContainer';
 
 export default class CreateEvent extends Component {
     constructor(){
@@ -38,6 +38,8 @@ export default class CreateEvent extends Component {
   }
   render() {
     return (
+
+        
       <div>
             <div className="cardEvent">
                 <div className="row">
@@ -54,6 +56,7 @@ export default class CreateEvent extends Component {
                         </p>
                     </div>
                 </div>
+                
 
                 <div className="row">
                     <div className="data-post">
@@ -63,15 +66,17 @@ export default class CreateEvent extends Component {
                             <input type="text" name="city" placeholder="title" onChange={e => this.handleChange(e)} />
                             <input type="submit" value="createEvent" onClick={e => this.handleChange(e)}/>
                         </form>
-                        <div className="reaction">
-                            <p>imagen</p>
+                        <div className="map">
+                            <MapContainer/>
                         </div>
+                        
                         <div className="comments">
                             <div>Comments</div>
                         </div>
                     </div>
                 </div>
             </div>
+
             
             <div className="allEvents">
             <Switch>
@@ -79,6 +84,8 @@ export default class CreateEvent extends Component {
                     {(this.state) ? <AllEvents event={this.state} /> : <p>Loading...</p>}
             </Switch>           
             </div>
+
+            
       </div>
     )
   }

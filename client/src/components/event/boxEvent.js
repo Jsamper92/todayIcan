@@ -3,27 +3,16 @@ import { Link } from "react-router-dom";
 import "../VistaPrincipal.css";
 import ModalMoreInfo from './ModalMoreInfo'
 import eventService from "./EventService";
+
 export default class boxEvent extends Component {
   constructor() {
     super();
     this.eventService = new eventService();
     this.state = {
-      eventDetails: {},
-      show: false
+      eventDetails: {}
     };
-    this.showModal = this.showModal.bind(this);
   }
 
-  
-
-  showModal = (e) => {
-    this.setState({ value: e.target.id })
-  
-  };
-
-  hideModal = () => {
-    this.setState({ show: false });
-  };
 
   handleClick = id => {
     this.eventService
@@ -49,9 +38,13 @@ export default class boxEvent extends Component {
               <p>{this.props.elem.description}</p>
               <p>{this.props.elem.city}</p>
             </Link>
-
-          <ModalMoreInfo/>
-          <button>more details</button>
+            
+        <div>
+          
+          
+          <ModalMoreInfo />
+        </div>
+          
           
             
           </div>
