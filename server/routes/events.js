@@ -4,7 +4,6 @@ const authRoutes = express.Router();
 
 authRoutes.post("/createEvent", (req, res, next) => {
     const {description,city} = req.body;
-    console.log(req.body)
     const event = new Events({
         author: req.user.id,
         description,
@@ -40,7 +39,7 @@ authRoutes.get("/showEvent/:id", (req, res, next) => {
 var eventId = req.params.id;
     Events.findById(eventId)
         .then(event => {
-
+           
             res.status(200).json(event);
 
         })

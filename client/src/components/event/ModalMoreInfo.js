@@ -1,70 +1,68 @@
+
+import './ModalMoreInfo.css'
 import React, { Component } from "react";
 import EventService from "./EventService";
-
-
-const display = {
+ const display = {
   display: 'block'
 };
 const hide = {
   display: 'none'
 };
-
-export default class ModalMoreInfo extends React.Component {
+ export default class ModalMoreInfo extends React.Component {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
-
-    this.state = {
+     this.state = {
       toggle: false,
-      allEventsModal:null
+      allEventsModal: null,
     }
-
     this.eventService = new EventService();
   }
 
   retrive = () => {
-      this.eventService.showEvents()
-      .then(res=>{
-        
-        this.setState({...this.state, allEventsModal:[res.data]})
-        
+    this.eventService.showEventId('5c1120b8546f7c92899c1617')
+      .then(res => {
+        this.setState({ ...this.state,
+          allEventsModal: [res.data]
+        })
       })
-    }
+  }
 
-    
-    componentWillMount() {
-      this.retrive()
-    }
 
-  toggle() {
+  componentWillMount() {
+    this.retrive()
+  }
+
+   toggle(event) {
     this.setState(prevState => ({
       toggle: !prevState.toggle
     }));
   }
-
-  render() {
+  
+   render() {
+    
     var modal = [];
     modal.push(
       <div className="modal" style={this.state.toggle ? display : hide}>
       <div className="modal-content">
-      {/* {this.state.allEventsModal && this.state.allEventsModal.map((elem,index) => {
-        
+      <div className="closeModal">
+      <i class="fas fa-times" onClick={this.toggle}></i>
+      </div>
+      {this.state.allEventsModal && this.state.allEventsModal.map((elem,index) => {
+        console.log(elem)
         return(
-          
-          <p>{this.elem}</p>
-        
-        
+          <div className="textModal" key={index}>
+            <p>{elem.city}</p>
+            <p>{elem.description}</p>
+          </div>
           )
         }
         )
-        
-        
-      } */}
-      <p>texto</p>
+      }
+        <h4></h4>
+        <p>A bunch of text</p>
       </div>
-      <div className="modal-footer">
-        <a className="btn" onClick={this.toggle}>Close</a>
-      </div>
+      
     </div>
     );
     return (
@@ -74,4 +72,5 @@ export default class ModalMoreInfo extends React.Component {
       </div>
     );
   }
-}
+} 
+

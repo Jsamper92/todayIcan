@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({
     description: String,
-    location: { latitude: Number, longitude: Number },
     city: String,
     address: String,
     author: { type: Schema.Types.ObjectId, ref: 'User' }

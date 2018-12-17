@@ -31,7 +31,7 @@ class EventService {
 
   }
 
-  showEventId = (showEventId, evento) => {
+  showEventId = (showEventId) => {
 
     return axios.get(`http://localhost:5000/showEvent/${showEventId}`, {
         showEventId

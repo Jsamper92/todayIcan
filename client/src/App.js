@@ -39,10 +39,10 @@ class App extends Component {
   };
 
   render() {
+    
     const vistaprincipal = this.state.user ? (
       <div>
-        <p>Hola {this.state.user.username}</p>
-        <button onClick={this.logout}>Logout</button>
+        
        
         <Switch>
             <Route path="/main" component={VistaPrincipal} />
@@ -54,7 +54,8 @@ class App extends Component {
     ) : (
       <div>
         <p>No user</p>
-        <Link to="/">Home</Link> - <Link to="/signup">Signup</Link> -{" "}
+        <Link to="/">Home</Link> - 
+        <Link to="/signup">Signup</Link> -{" "}
         <Link to="/login">Login</Link>
         
       </div>

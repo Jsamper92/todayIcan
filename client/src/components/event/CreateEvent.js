@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import EventService from './EventService'
 import AllEvents from './allEvents'
 import '../VistaPrincipal.css'
-import { Route, Link, Switch } from "react-router-dom";
-import MapContainer from './MapContainer';
+import {Switch } from "react-router-dom";
+
+
 
 export default class CreateEvent extends Component {
     constructor(){
@@ -11,15 +12,10 @@ export default class CreateEvent extends Component {
         this.state = {
             description: '',
             city: '',
-            redirect: false
+            redirect: false 
         }
-
         this.eventService = new EventService();
     }
-    getEvent = event => {
-        this.setState({ ...this.state,event});
-    };
-
     handleFormSubmit = (e) => {
     e.preventDefault();
 
@@ -38,21 +34,14 @@ export default class CreateEvent extends Component {
   }
   render() {
     return (
-
-        
       <div>
             <div className="cardEvent">
                 <div className="row">
-                    <div className="col-xs-3 col-sm-2">
-                        <a title="profile" />
-                    </div>
 
                     <div className="info-user">
-                        <h3>
-                            <a href="personal-profile.html" title="Profile" />
-                        </h3>
+                       
                         <p>
-                            <i>2h</i>
+                            <i>fecha creacion</i>
                         </p>
                     </div>
                 </div>
@@ -66,9 +55,12 @@ export default class CreateEvent extends Component {
                             <input type="text" name="city" placeholder="title" onChange={e => this.handleChange(e)} />
                             <input type="submit" value="createEvent" onClick={e => this.handleChange(e)}/>
                         </form>
-                        <div className="map">
-                            <MapContainer/>
-                        </div>
+                       
+                        {/* <div className="map">
+                            <MapContainer {...this.state}/>
+                        </div> */}
+
+                        
                         
                         <div className="comments">
                             <div>Comments</div>
@@ -80,7 +72,6 @@ export default class CreateEvent extends Component {
             
             <div className="allEvents">
             <Switch>
-                     
                     {(this.state) ? <AllEvents event={this.state} /> : <p>Loading...</p>}
             </Switch>           
             </div>

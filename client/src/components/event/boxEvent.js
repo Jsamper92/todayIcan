@@ -40,8 +40,6 @@ export default class boxEvent extends Component {
             </Link>
             
         <div>
-          
-          
           <ModalMoreInfo />
         </div>
           

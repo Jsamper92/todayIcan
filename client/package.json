@@ -7,8 +7,12 @@
     "google-maps-react": "^2.0.2",
     "react": "^16.6.3",
     "react-bootstrap": "^0.32.4",
+    "react-bootstrap-modal": "^4.2.0",
     "react-dom": "^16.6.3",
+    "react-geocode": "^0.1.2",
+    "react-google-autocomplete": "^1.0.18",
     "react-google-maps": "^9.4.5",
+    "react-load-script": "0.0.6",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1"
   },

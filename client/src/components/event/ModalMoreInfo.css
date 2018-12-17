@@ -1,0 +1,28 @@
+.modal-content i{
+    text-align: right;
+    font-weight: 10px;
+}
+
+.modal{
+    margin: 270px;
+    width: 700px;
+    border-radius: 33px 33px 33px 33px;
+    -moz-border-radius: 33px 33px 33px 33px;
+    -webkit-border-radius: 33px 33px 33px 33px;
+    border: 2px solid #000000;
+    -webkit-box-shadow: 10px 6px 16px 0px rgba(0, 0, 0, 0.97);
+    -moz-box-shadow: 10px 6px 16px 0px rgba(0, 0, 0, 0.97);
+   display: flex;
+
+}
+
+.closeModal{
+    display: flex;
+    padding-top: 10px;
+    padding-left: 10px;
+    width: 50px;
+}
+
+.textModal{
+    margin-top:-36px;
+}
