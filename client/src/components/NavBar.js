@@ -20,11 +20,11 @@ export default class NavBar extends Component {
       .then(user => this.setState({ ...this.state, user }));
   };
 
-  logout = () => {
-    this.authService
-      .logout()
-      .then(() => this.setState({ ...this.state, user: null }));
-  };
+  // logout = () => {
+  //   this.authService
+  //     .logout()
+  //     .then(() => this.setState({ ...this.state, user: null }));
+  // };
 
   render() {
     const styles= {color: '#4F5467'}

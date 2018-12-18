@@ -39,12 +39,21 @@
         width:90%;
 }
 
+
+
 .boxEvent{
             background: #ffffff;
             padding: 15px;
             display: block;
             overflow: hidden;
             margin-bottom: 15px;
+}
+
+.imgUser {
+        border-radius: 50%;
+        font-size: 30px;
+        width: 20%;
+        float: left;
 }
 
 .map{

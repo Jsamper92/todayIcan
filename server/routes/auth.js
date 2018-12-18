@@ -40,7 +40,7 @@ authRoutes.post("/signup", uploadCload.single("photo"), (req, res, next) => {
     username,
     password
   } = req.body;
-  const pictureUrl = req.body.url;
+  const pictureUrl = req.file.url;
 
 
   if (username === "" || password === "") {

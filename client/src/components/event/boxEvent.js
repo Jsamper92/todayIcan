@@ -5,12 +5,24 @@ import ModalMoreInfo from './ModalMoreInfo'
 import eventService from "./EventService";
 
 export default class boxEvent extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.eventService = new eventService();
     this.state = {
-      eventDetails: {}
+      eventDetails: null,
+      detailsUser: this.props.usuarios
     };
+  }
+
+  componentDidMount(id = this.props.elem._id) {
+        this.eventService
+          .showEventId(id)
+          .then(res => {
+            this.setState({ ...this.state,
+              eventDetails: res.data
+            });
+          })
+          .catch(err => console.log(err));
   }
 
 
@@ -25,19 +37,33 @@ export default class boxEvent extends Component {
   
   render() {
     
+    console.log(this.state.eventDetails)
     return <div>
-        <h1>{this.state.eventDetails._id}</h1>
-        <h1>{this.state.eventDetails.description}</h1>
+        {
+          this.state.eventDetails && < div > < h1 > {
+              this.state.eventDetails._id
+            } </h1> <h1> {
+              this.state.eventDetails.description
+            } </h1></div >
+        }
 
         <div className="boxEvent">
           <div className="data-post">
-            <button onClick={() => this.handleClick(this.props.elem._id)}>
+          <div className="row">
+            
+          </div>
+            {/* <button onClick={() => this.handleClick(this.props.elem._id)}>
               Details
-            </button>
-            <Link to={`/event/${this.props.elem._id}`}>
+            </button> */}
+            {this.state.eventDetails && <Link to={`/event/${this.props.elem._id}`}>
+              < img className = "imgUser"
+              src = {
+                this.state.eventDetails.author.pictureUrl
+              }
+              />
               <p>{this.props.elem.description}</p>
               <p>{this.props.elem.city}</p>
-            </Link>
+            </Link>}
             
         <div>
           <ModalMoreInfo info={this.props.elem}/>

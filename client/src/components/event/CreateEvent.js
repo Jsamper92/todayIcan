@@ -17,6 +17,12 @@ export default class CreateEvent extends Component {
         }
         this.eventService = new EventService();
     }
+
+    getEvent = event => {
+        this.setState({ ...this.state,
+            event
+        });
+    };
     handleFormSubmit = (e) => {
     e.preventDefault();
 
@@ -40,9 +46,7 @@ export default class CreateEvent extends Component {
       <div>
             <div className="cardEvent">
                 <div className="row">
-
                     <div className="info-user">
-                       
                         <p>
                             <i>fecha creacion</i>
                         </p>

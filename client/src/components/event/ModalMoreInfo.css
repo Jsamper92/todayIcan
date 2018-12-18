@@ -4,8 +4,8 @@
 }
 
 .modal{
-    margin: 300px;
-    width: 800px;
+    margin: 100px;
+    width: 300px;
     border-radius: 33px 33px 33px 33px;
     -moz-border-radius: 33px 33px 33px 33px;
     -webkit-border-radius: 33px 33px 33px 33px;
@@ -13,6 +13,7 @@
     font-size: 20px;
    display: flex;
    background-color:white;
+   position: absolute;
 
 }
 
