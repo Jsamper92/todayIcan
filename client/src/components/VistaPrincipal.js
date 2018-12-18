@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import "./VistaPrincipal.css";
 import CreateEvent from "./event/CreateEvent";
 export default class VistaPrincipal extends Component {
-  
+  constructor(props){
+    super(props)
+    this.state = {
+      detailsUser : this.props.usuarios
+    }
+  }
 
   render() {
     const vistaprincipal = this.props.user ? (
@@ -10,7 +15,7 @@ export default class VistaPrincipal extends Component {
     ) : (
       <p>Hola no usuario</p>
     );
-
+    console.log(this.props.user)
     return (
       <div className="bodyMain">
         <div className="sidebar">
@@ -30,7 +35,7 @@ export default class VistaPrincipal extends Component {
         </div>
 
         <div className="content">
-          <CreateEvent />
+          <CreateEvent usuarios={this.props.user}/>
         </div>
       </div>
     

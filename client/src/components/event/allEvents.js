@@ -7,7 +7,8 @@ export default class allEvents extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            allEvents: null
+            allEvents: null,
+            detailsUser: this.props.usuarios
         }
         this.eventService = new EventService();
     }
@@ -27,14 +28,14 @@ export default class allEvents extends Component {
     }
     
   render() {
-    
+    console.log(this.props.usuarios)
     return (
       <div className="cardEvent">
         {
           this.state.allEvents && this.state.allEvents[0].map((elem,index) => {
-
+          
           return (
-             <BoxEvent key={index} elem={elem}/>
+             <BoxEvent key={index} elem={elem} usuarios={this.props.usuarios}/>
           )
         })}
        

@@ -7,12 +7,13 @@ import {Switch } from "react-router-dom";
 
 
 export default class CreateEvent extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             description: '',
             city: '',
-            redirect: false 
+            redirect: false,
+            detailsUser : this.props.usuarios
         }
         this.eventService = new EventService();
     }
@@ -33,6 +34,8 @@ export default class CreateEvent extends Component {
     this.setState({ ...this.state,[name]: value});
   }
   render() {
+    console.log(this.props.usuarios)
+
     return (
       <div>
             <div className="cardEvent">
@@ -49,7 +52,7 @@ export default class CreateEvent extends Component {
 
                 <div className="row">
                     <div className="data-post">
-                        <p>Crear evento</p>
+                    <h3>Hola {this.props.usuarios.username},¿Quieres crear un evento?</h3>
                         <form onSubmit={this.handleFormSubmit}>
                             <input type="text" name="description" placeholder="title" onChange={e => this.handleChange(e)} />
                             <input type="text" name="city" placeholder="title" onChange={e => this.handleChange(e)} />
@@ -72,7 +75,7 @@ export default class CreateEvent extends Component {
             
             <div className="allEvents">
             <Switch>
-                    {(this.state) ? <AllEvents event={this.state} /> : <p>Loading...</p>}
+                    {(this.state) ? <AllEvents event={this.state} usuarios={this.props.usuarios} /> : <p>Loading...</p>}
             </Switch>           
             </div>
 
