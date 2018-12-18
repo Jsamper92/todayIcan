@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import AuthService from "./auth/AuthService";
 import "./NavBar.css";
-import { Route, Switch } from "react-router-dom";
-import VistaPrincipal from './VistaPrincipal'
-
+import { Route, Switch, Link, Redirect } from "react-router-dom";
+import VistaPrincipal from "./VistaPrincipal";
+import ProfilePage from "./Profile";
 
 export default class NavBar extends Component {
   constructor(props) {
@@ -27,32 +27,37 @@ export default class NavBar extends Component {
   // };
 
   render() {
-    const styles= {color: '#4F5467'}
+    const styles = { color: "#4F5467" };
     return (
-    <div className="classNameNavBar">
+      <div className="classNameNavBar">
         <header className="navBar">
           <div className="navBarContent" style={styles}>
             <div>
               <span>
-                <i className="fas fa-home" />
-              <Switch>
-                <Route path="/main" component={VistaPrincipal} />
-              </Switch>
+                
+                  <Link to="/main" style={{ color: "white" }}>
+                    <i className="fas fa-home" />
+                  </Link>
+                
               </span>
             </div>
-            <div><span>
-            <i className="fas fa-user" />
-            </span>
+            <div>
+              <span>
+                
+                  <Link to="/profile" style={{ color: "white" }}>
+                    <i className="fas fa-user" />
+                  </Link>
               
+              </span>
             </div>
             <div onClick={() => this.props.logout()}>
-            <span>
-              <i className="fas fa-sign-out-alt" />
+              <span>
+                <i className="fas fa-sign-out-alt" />
               </span>
             </div>
           </div>
         </header>
       </div>
-      )
+    );
   }
 }

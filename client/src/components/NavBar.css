@@ -3,11 +3,11 @@ i {
 }
 
 .classNameNavBar {
-    margin-left: 239px;
+    
     width: 100%;
     background-color: #4F5467;
     position: fixed;
-    z-index: 100;
+    z-index: 98;
     top: 0;
 }
 
@@ -20,18 +20,18 @@ i {
 .navBarContent {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    margin-left: 300px;
 
 }
 
 .navBarContent span {
     color: white;
-
+    
 
 }
 
 .navBarContent i {
     margin: 10px;
-
+    text-align: center;
 
 }

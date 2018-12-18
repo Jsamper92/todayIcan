@@ -3,6 +3,7 @@ import "./App.css";
 import Signup from "./components/auth/Signup";
 import Login from "./components/auth/Login";
 import VistaPrincipal from "./components/VistaPrincipal";
+import Profile from './components/Profile'
 import NavBar from './components/NavBar'
 import AuthService from "./components/auth/AuthService";
 import { Route, Link, Switch } from "react-router-dom";
@@ -39,16 +40,16 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state.user)
     const vistaprincipal = this.state.user ? (
       <div>
-        
-       
         <Switch>
-            <Route path="/main" component={VistaPrincipal} />
+            <Route path="/main" component={()=><VistaPrincipal user={this.state.user} />}/>
+            <Route path="/profile" component={()=><Profile usuarios={this.state.user}/>}/>
         </Switch>
 
-        <NavBar logout={this.logout}/>
-        <VistaPrincipal user={this.state.user} />
+        
+        
       </div>
     ) : (
       <div>

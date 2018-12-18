@@ -64,3 +64,8 @@
 .data-post h3{
         margin: 15px;
 }
+
+.link{
+        text-decoration: none;
+        color: black;
+}

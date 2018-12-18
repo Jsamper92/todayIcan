@@ -28,7 +28,6 @@ export default class allEvents extends Component {
     }
     
   render() {
-    console.log(this.props.usuarios)
     return (
       <div className="cardEvent">
         {
