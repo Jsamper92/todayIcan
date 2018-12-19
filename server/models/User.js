@@ -5,6 +5,7 @@ const userSchema = new Schema({
   username: String,
   password: String,
   pictureUrl: String,
+  status:{type:String,enum:['active','disable'], default:'active'},
   event: { type: Schema.Types.ObjectId, ref: 'Event' }
 
 }, {
