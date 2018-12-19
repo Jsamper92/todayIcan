@@ -21,21 +21,19 @@ export default class allEvents extends Component {
        
       })
     }
-
-    
     componentWillMount() {
       this.retrive()
     }
     
   render() {
-    console.log(this.state)
+    console.log(this.state.allEvents)
     return (
       <div className="cardEvent">
         {
           this.state.allEvents && this.state.allEvents[0].map((elem,index) => {
-          
+          console.log(elem)
           return (
-             <BoxEvent key={index} elem={elem} usuarios={this.props.usuarios}/>
+             <BoxEvent key={index} elem={elem} usuarios={this.props.usuarios} allEvents={this.state.allEvents}/>
           )
         })}
        

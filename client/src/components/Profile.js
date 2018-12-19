@@ -22,17 +22,17 @@ export default class Profile extends Component {
       .then(() => this.setState({ ...this.state, user: null }));
   };
 
-  componentDidMount(id = this.props.usuarios._id) {
-    this.eventService
-      .showEventId(id)
-      .then(event => {
-        this.setState({ ...this.state, allEvents: [event.data] });
-      })
-      .then(res => {
-        this.setState({ ...this.state, eventDetails: res.data });
-      })
-      .catch(err => console.log(err));
-  }
+  // componentDidMount(id = this.props.usuarios._id) {
+  //   this.eventService
+  //     .showEventId(id)
+  //     .then(event => {
+  //       this.setState({ ...this.state, allEvents: [event.data] });
+  //     })
+  //     .then(res => {
+  //       this.setState({ ...this.state, eventDetails: res.data });
+  //     })
+  //     .catch(err => console.log(err));
+  // }
 
   retrive = (id=this.props.usuarios._id) => {
     // this.eventService.showEvents().then(res => {

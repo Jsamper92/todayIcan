@@ -9,7 +9,7 @@ class EventService {
   }
 
   createEvent = event => {
-    
+
     const formData = new FormData();
     Object.keys(event).forEach(key => {
       formData.append(key, event[key])

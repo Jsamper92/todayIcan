@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../VistaPrincipal.css";
 import ModalMoreInfo from "./ModalMoreInfo";
 import eventService from "./EventService";
+import allEvents from "./allEvents";
 
 export default class boxEvent extends Component {
   constructor(props) {
@@ -10,7 +11,8 @@ export default class boxEvent extends Component {
     this.eventService = new eventService();
     this.state = {
       eventDetails: null,
-      detailsUser: this.props.usuarios
+      detailsUser: this.props.usuarios,
+      allEvents:this.props.allEvents
     };
   }
 
@@ -33,6 +35,7 @@ export default class boxEvent extends Component {
   };
 
   render() {
+    console.log(this.state)
     return <div>
         {/* {this.state.eventDetails && (
           <div>

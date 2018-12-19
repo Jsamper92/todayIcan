@@ -26,22 +26,22 @@ authRoutes.get("/showEvent", (req, res, next) => {
     
     Events.find()
         .then(event => {
-            
+          
             res.status(200).json(event);
             
         })
+        
         .catch(err => {
             console.error(err);
         })
 });
 
 authRoutes.get("/showEvent/:id", (req, res, next) => {
-    Events.find({
+    Events.findById({
         author: req.params.id
     })
         .populate('author')
         .then(event => {
-           console.log(event)
             res.status(200).json(event);
 
         })
