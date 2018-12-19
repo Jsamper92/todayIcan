@@ -33,7 +33,6 @@ export default class boxEvent extends Component {
   };
 
   render() {
-    // console.log(this.state.eventDetails.author.pictureUrl);
     return <div>
         {/* {this.state.eventDetails && (
           <div>

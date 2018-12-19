@@ -4,6 +4,7 @@ import AllEvents from './allEvents'
 import '../VistaPrincipal.css'
 import {Switch } from "react-router-dom";
 import NavBar from '../NavBar'
+import AuthService from '../auth/AuthService';
 
 
 export default class CreateEvent extends Component {
@@ -15,8 +16,17 @@ export default class CreateEvent extends Component {
             redirect: false,
             detailsUser : this.props.usuarios
         }
+        this.authService = new AuthService();
         this.eventService = new EventService();
     }
+
+    logout = () => {
+        this.authService
+            .logout()
+            .then(() => this.setState({ ...this.state,
+                user: null
+            }));
+    };
 
     getEvent = event => {
         this.setState({ ...this.state,
@@ -43,7 +53,7 @@ export default class CreateEvent extends Component {
     return (
         
       <div>
-          <NavBar/>
+          <NavBar logout={()=>{this.logout()}}/>
             <div className="cardEvent">
                 
 

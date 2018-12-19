@@ -8,7 +8,6 @@ export default class SideBar extends Component {
         }
     }
   render() {
-      console.log(this.props.usuarios)
     return (
       <div>
         <div className="sidebar">

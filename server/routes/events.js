@@ -36,11 +36,12 @@ authRoutes.get("/showEvent", (req, res, next) => {
 });
 
 authRoutes.get("/showEvent/:id", (req, res, next) => {
-var eventId = req.params.id;
-    Events.findById(eventId)
+    Events.find({
+        author: req.params.id
+    })
         .populate('author')
         .then(event => {
-           
+           console.log(event)
             res.status(200).json(event);
 
         })

@@ -15,7 +15,8 @@ class App extends Component {
     super();
 
     this.state = {
-      user: null
+      user: null,
+      event:{}
     };
 
     this.authService = new AuthService();
@@ -33,6 +34,12 @@ class App extends Component {
     this.setState({ ...this.state, user });
   };
 
+  getEvent = event =>{
+    this.setState({...this.setState,event})
+    
+  }
+
+
   logout = () => {
     this.authService
       .logout()
@@ -40,16 +47,12 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.user)
     const vistaprincipal = this.state.user ? (
       <div>
         <Switch>
             <Route path="/main" component={()=><VistaPrincipal user={this.state.user} />}/>
             <Route path="/profile" component={()=><Profile usuarios={this.state.user}/>}/>
         </Switch>
-
-        
-        
       </div>
     ) : (
       <div>
@@ -66,6 +69,8 @@ class App extends Component {
         {vistaprincipal}
         <Route exact path="/signup" render={() => <Signup getUser={this.getUser} />}/>
         {!this.state.user &&  <Route exact path="/login" render={() => <Login getUser={this.getUser} />} />}
+        {this.state.user &&  <Route exact path="/login" render={() => <Login getUser={this.getUser} />} />}
+
       </div>
     );
   }
