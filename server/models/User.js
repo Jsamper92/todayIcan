@@ -5,7 +5,11 @@ const userSchema = new Schema({
   username: String,
   password: String,
   pictureUrl: String,
-  status:{type:String,enum:['active','disable'], default:'active'},
+  confirmationCode: {
+    type: String,
+    enum: ['Pending Confirmation', 'Active'],
+    default: 'Pending Confirmation'
+  },
   event: { type: Schema.Types.ObjectId, ref: 'Event' }
 
 }, {

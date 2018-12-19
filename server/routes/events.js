@@ -54,7 +54,6 @@ var eventId = req.params.id;
     Events.findById(eventId)
         .populate('author')
         .then(event => {
-           console.log(event)
             res.status(200).json(event);
 
         })
@@ -62,6 +61,10 @@ var eventId = req.params.id;
             console.error(err);
         })
 });
+
+authRoutes.post("acceptPlan/:id",(req,res,next)=>{
+    var acceptPlanId = req.params
+})
 
 
 
