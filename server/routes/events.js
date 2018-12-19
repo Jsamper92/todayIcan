@@ -22,7 +22,7 @@ authRoutes.post("/createEvent", (req, res, next) => {
     });
 });
 
-authRoutes.get("/showEvent", (req, res, next) => {
+authRoutes.get("/showsEvent", (req, res, next) => {
     
     Events.find()
         .then(event => {
@@ -34,11 +34,24 @@ authRoutes.get("/showEvent", (req, res, next) => {
             console.error(err);
         })
 });
+authRoutes.get("/showEventUsers/:id", (req, res, next) => {
+    var eventId = req.params.id;
+    Events.find({author:eventId})
+        .populate('author')
+        .then(event => {
+            console.log(event)
+            res.status(200).json(event);
+
+        })
+        .catch(err => {
+            console.error(err);
+        })
+});
+
 
 authRoutes.get("/showEvent/:id", (req, res, next) => {
-    Events.find({
-        author: req.params.id
-    })
+var eventId = req.params.id;
+    Events.findById(eventId)
         .populate('author')
         .then(event => {
            console.log(event)

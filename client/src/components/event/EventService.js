@@ -22,7 +22,7 @@ class EventService {
 
   showEvents = (showEvent) => {
 
-    return axios.get('http://localhost:5000/showEvent', {
+    return axios.get('http://localhost:5000/showsEvent', {
         showEvent
       }, {
         withCredentials: true
@@ -34,6 +34,16 @@ class EventService {
   showEventId = (showEventId) => {
 
     return axios.get(`http://localhost:5000/showEvent/${showEventId}`, {
+        showEventId
+      }, {
+        withCredentials: true
+      })
+      .then(res => res)
+  }
+
+  showEventUser = (showEventId) => {
+
+    return axios.get(`http://localhost:5000/showEventUsers/${showEventId}`, {
         showEventId
       }, {
         withCredentials: true
