@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./VistaPrincipal.css";
 import CreateEvent from "./event/CreateEvent";
 import Sidebar from './SideBar'
+import NavBar from './NavBar'
 export default class VistaPrincipal extends Component {
   constructor(props){
     super(props)

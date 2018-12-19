@@ -39,7 +39,6 @@ class App extends Component {
     
   }
 
-
   logout = () => {
     this.authService
       .logout()
@@ -50,14 +49,13 @@ class App extends Component {
     const vistaprincipal = this.state.user ? (
       <div>
         <Switch>
-            <Route path="/main" component={()=><VistaPrincipal user={this.state.user} />}/>
+            <Route exact path="/" component={()=><VistaPrincipal user={this.state.user} />}/>
             <Route path="/profile" component={()=><Profile usuarios={this.state.user}/>}/>
         </Switch>
       </div>
     ) : (
       <div>
         <p>No user</p>
-        <Link to="/">Home</Link> - 
         <Link to="/signup">Signup</Link> -{" "}
         <Link to="/login">Login</Link>
         

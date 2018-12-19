@@ -14,7 +14,8 @@ export default class ModalMoreInfo extends React.Component {
     this.state = {
       toggle: false,
       allEventsModal: null,
-      eventDetails: this.props.info
+      eventDetails: this.props.info,
+      arrayPlan: this.props.arrayPlan
     };
     this.eventService = new EventService();
   }
@@ -62,7 +63,10 @@ export default class ModalMoreInfo extends React.Component {
           <div className="textModal" >
             <p>{this.props.info.description}</p>
             <p>{this.props.info.city}</p>
+            <h1>Asistentes al evento:</h1>
+            <p>{this.props.arrayPlan}</p>
           </div>
+
         </div>
       </div>
     );

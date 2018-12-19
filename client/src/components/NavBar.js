@@ -35,7 +35,7 @@ export default class NavBar extends Component {
             <div>
               <span>
                 
-                  <Link to="/main" style={{ color: "white" }}>
+                  <Link to="/" style={{ color: "white" }}>
                     <i className="fas fa-home" />
                   </Link>
                 

@@ -10,7 +10,8 @@ export default class boxEvent extends Component {
     this.eventService = new eventService();
     this.state = {
       eventDetails: null,
-      detailsUser: this.props.usuarios
+      detailsUser: this.props.usuarios,
+      arrayPlan:[]
     };
   }
 
@@ -31,6 +32,13 @@ export default class boxEvent extends Component {
       })
       .catch(err => console.log(err));
   };
+
+  addUser = () =>{
+    var addUser = document.getElementsByClassName('addUserPlan')//.innerHTML
+    addUser =this.props.usuarios.username
+    this.state.arrayPlan.push(addUser)
+    this.setState({...this.state,arrayPlan:this.state.arrayPlan})
+  }
 
   render() {
     return <div>
@@ -54,9 +62,10 @@ export default class boxEvent extends Component {
                 <p>{this.props.elem.description}</p>
                 <p>{this.props.elem.city}</p>
               </Link>}
-
+              
+              <button className="addUserPlan" onClick={e=>this.addUser(e)}>Apuntate al plan</button>
             <div>
-              <ModalMoreInfo info={this.props.elem} />
+              <ModalMoreInfo info={this.props.elem} arrayPlan={this.state.arrayPlan}/>
             </div>
           </div>
         </div>

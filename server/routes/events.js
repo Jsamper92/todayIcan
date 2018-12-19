@@ -1,6 +1,8 @@
 const express = require("express");
 const Events = require("../models/Event");
+const PlanConfirmation = require("../models/PlanConfirmation");
 const authRoutes = express.Router();
+const transporter = require('../mail/transporter');
 
 authRoutes.post("/createEvent", (req, res, next) => {
     const {description,city} = req.body;
@@ -61,12 +63,6 @@ var eventId = req.params.id;
             console.error(err);
         })
 });
-
-authRoutes.post("acceptPlan/:id",(req,res,next)=>{
-    var acceptPlanId = req.params
-})
-
-
 
 module.exports = authRoutes;
 

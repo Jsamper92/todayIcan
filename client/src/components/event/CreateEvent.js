@@ -55,8 +55,6 @@ export default class CreateEvent extends Component {
       <div>
           <NavBar logout={()=>{this.logout()}}/>
             <div className="cardEvent">
-                
-
                 <div className="row">
                     <div className="data-post">
                     <h3>Hola {this.props.usuarios.username},¿Quieres crear un evento?</h3>

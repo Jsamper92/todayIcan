@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AuthService from './AuthService';
+import {Redirect} from "react-router-dom";
 
 export default class Login extends Component {
   constructor() {
@@ -30,6 +31,9 @@ export default class Login extends Component {
   }
 
   render() {
+    if (this.state && this.state.redirect) {
+      return <Redirect to = "/" / >
+    }
     
     return (
       
