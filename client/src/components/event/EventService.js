@@ -3,7 +3,7 @@ import axios from 'axios'
 class EventService {
   constructor() {
     this.service = axios.create({
-      baseURL: "http://localhost:5000",
+      baseURL: `${process.env.REACT_APP_API_URL}`,
       withCredentials: true
     });
   }
@@ -22,7 +22,8 @@ class EventService {
 
   showEvents = (showEvent) => {
 
-    return axios.get('http://localhost:5000/showsEvent', {
+
+    return this.service.get(`/showEvents`, {
         showEvent
       }, {
         withCredentials: true
@@ -33,7 +34,8 @@ class EventService {
 
   showEventId = (showEventId) => {
 
-    return axios.get(`http://localhost:5000/showEvent/${showEventId}`, {
+    
+    return this.service.get(`/showEvent/${showEventId}`, {
         showEventId
       }, {
         withCredentials: true
@@ -43,7 +45,7 @@ class EventService {
 
   showEventUser = (showEventId) => {
 
-    return axios.get(`http://localhost:5000/showEventUsers/${showEventId}`, {
+    return this.service.get(`/showEventUsers/${showEventId}`, {
         showEventId
       }, {
         withCredentials: true

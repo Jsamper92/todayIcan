@@ -24,7 +24,7 @@ authRoutes.post("/createEvent", (req, res, next) => {
     });
 });
 
-authRoutes.get("/showsEvent", (req, res, next) => {
+authRoutes.get("/showEvents", (req, res, next) => {
     
     Events.find()
         .then(event => {
