@@ -17,6 +17,7 @@ export default class allEvents extends Component {
     retrive = () => {
       this.eventService.showEvents()
       .then(res=>{
+        console.log(res)
         this.setState({...this.state, allEvents:[res.data]})
        
       })
