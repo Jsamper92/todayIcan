@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import NavBar from './NavBar'
 import './NavBar.css'
 import Sidebar from './SideBar'
-import BoxEvent from './event/boxEvent'
 import './VistaPrincipal.css'
 import EventService from './event/EventService'
 import AuthService from './auth/AuthService';
@@ -16,12 +15,6 @@ export default class Profile extends Component {
         this.authService = new AuthService();
         this.eventService = new EventService();
   }
-
-  logout = () => {
-    this.authService
-      .logout()
-      .then(() => this.setState({ ...this.state, user: null }));
-  };
 
   retrive = (id = this.props.usuarios._id) => {
     // this.eventService.showEvents().then(res => {
@@ -45,6 +38,7 @@ export default class Profile extends Component {
 
   
   render() {
+    console.log(this.props)
     if (this.state.allEvents) {
       console.log(this.state);
     }
@@ -56,9 +50,7 @@ export default class Profile extends Component {
               <div key={i}>{elem.city}</div>
             ))}
           <NavBar
-            logout={() => {
-              this.logout();
-            }}
+            logout={this.props.logout}
           />
           <Sidebar usuarios={this.props.usuarios} />
         </div>

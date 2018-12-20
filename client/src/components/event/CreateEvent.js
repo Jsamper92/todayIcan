@@ -49,11 +49,12 @@ export default class CreateEvent extends Component {
     const {name, value} = e.target;
     this.setState({ ...this.state,[name]: value});
   }
+
   render() {
     return (
     
       <div>
-          <NavBar logout={()=>{this.logout()}}/>
+          <NavBar logout={()=>{this.logout()}} usuarios={this.props.usuarios}/>
             <div className="cardEvent ">
                 <h3>Hola {this.props.usuarios.username},¿Quieres crear un evento?</h3>
                 <div className="row">

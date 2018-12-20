@@ -23,11 +23,12 @@ export default class allEvents extends Component {
     }
 
     
-    componentWillMount() {
-      this.retrive()
-    }
+    // componentWillMount() {
+    //   this.retrive()
+    // }
     
   render() {
+    this.retrive()
     return (
       <div className="cardEvent">
         {
