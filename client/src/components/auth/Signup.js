@@ -42,7 +42,7 @@ export default class Signup extends Component {
 
   render() {
     if(this.state && this.state.redirect) {
-      return <Redirect to="/main" />
+      return <Redirect to="/" />
     }
 
     return (
