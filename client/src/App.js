@@ -4,9 +4,8 @@ import Signup from "./components/auth/Signup";
 import Login from "./components/auth/Login";
 import VistaPrincipal from "./components/VistaPrincipal";
 import Profile from "./components/Profile";
-import NavBar from "./components/NavBar";
 import AuthService from "./components/auth/AuthService";
-import { Route, Link, Switch, Redirect } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
 
 class App extends Component {
   constructor() {
@@ -46,7 +45,6 @@ class App extends Component {
   };
 
   render() {
-    console.log("entra");
     const vistaprincipal = this.state.user ? (
       <div>
         <Switch>

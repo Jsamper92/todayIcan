@@ -62,7 +62,7 @@ export default class boxEvent extends Component {
                 <div className="col-xs-3 col-sm-2">
                   <img
                     className="imgUser"
-                    src={this.state.eventDetails.author.pictureUrl}
+                    src={this.state.eventDetails.author.pictureUrl} alt="imgUser"
                   />
                 </div>
                 <div className="col-xs-3 col-sm-2">

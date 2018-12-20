@@ -1,5 +1,6 @@
 import "./ModalMoreInfo.css";
-import React, { Component } from "react";
+import React from "react";
+
 import EventService from "./EventService";
 const display = {
   display: "block"
