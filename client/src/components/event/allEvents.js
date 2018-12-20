@@ -32,7 +32,7 @@ export default class allEvents extends Component {
     return (
       <div className="cardEvent">
         {
-          this.state.allEvents && this.state.allEvents[0].map((elem,index) => {
+          this.state.allEvents && this.state.allEvents[0].reverse().map((elem,index) => {
           
           return (
              <BoxEvent key={index} elem={elem} usuarios={this.props.usuarios}/>
