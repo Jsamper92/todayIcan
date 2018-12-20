@@ -34,20 +34,16 @@ export default class NavBar extends Component {
           <div className="navBarContent" style={styles}>
             <div>
               <span>
-                
                   <Link to="/" style={{ color: "white" }}>
                     <i className="fas fa-home" />
                   </Link>
-                
               </span>
             </div>
             <div>
               <span>
-                
                   <Link to="/profile" style={{ color: "white" }}>
                     <i className="fas fa-user" />
                   </Link>
-              
               </span>
             </div>
             <div onClick={() => this.props.logout()}>

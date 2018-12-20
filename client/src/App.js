@@ -6,7 +6,7 @@ import VistaPrincipal from "./components/VistaPrincipal";
 import Profile from './components/Profile'
 import NavBar from './components/NavBar'
 import AuthService from "./components/auth/AuthService";
-import { Route, Link, Switch } from "react-router-dom";
+import { Route, Link, Switch, Redirect } from "react-router-dom";
 
 
 
@@ -51,6 +51,7 @@ class App extends Component {
         <Switch>
             <Route exact path="/" component={()=><VistaPrincipal user={this.state.user} />}/>
             <Route path="/profile" component={()=><Profile usuarios={this.state.user}/>}/>
+            
         </Switch>
       </div>
     ) : (
@@ -67,7 +68,7 @@ class App extends Component {
         {vistaprincipal}
         <Route exact path="/signup" render={() => <Signup getUser={this.getUser} />}/>
         {!this.state.user &&  <Route exact path="/login" render={() => <Login getUser={this.getUser} />} />}
-        {this.state.user &&  <Route exact path="/login" render={() => <Login getUser={this.getUser} />} />}
+        {this.state.user && <Route exact path="/login" render={() => <VistaPrincipal user={this.state.user} />} />}
 
       </div>
     );

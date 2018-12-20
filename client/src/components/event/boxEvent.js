@@ -11,7 +11,7 @@ export default class boxEvent extends Component {
     this.state = {
       eventDetails: null,
       detailsUser: this.props.usuarios,
-      arrayPlan:[]
+      arrayPlan: []
     };
   }
 
@@ -33,15 +33,16 @@ export default class boxEvent extends Component {
       .catch(err => console.log(err));
   };
 
-  addUser = () =>{
-    var addUser = document.getElementsByClassName('addUserPlan')//.innerHTML
-    addUser =this.props.usuarios.username
-    this.state.arrayPlan.push(addUser)
-    this.setState({...this.state,arrayPlan:this.state.arrayPlan})
-  }
+  addUser = () => {
+    var addUser = document.getElementsByClassName("addUserPlan"); //.innerHTML
+    addUser = this.props.usuarios.username;
+    this.state.arrayPlan.push(addUser);
+    this.setState({ ...this.state, arrayPlan: this.state.arrayPlan });
+  };
 
   render() {
-    return <div>
+    return (
+      <div>
         {/* {this.state.eventDetails && (
           <div>
             
@@ -56,19 +57,34 @@ export default class boxEvent extends Component {
             {/* <button onClick={() => this.handleClick(this.props.elem._id)}>
               Details
             </button> */}
-            {this.state.eventDetails && <Link to={`/event/${this.props.elem._id}`} className="link">
-                <img className="imgUser" src={this.state.eventDetails.author.pictureUrl} />
-                <p>{this.state.eventDetails.author.username}</p>
+            {this.state.eventDetails && (
+              <Link to={`/event/${this.props.elem._id}`} className="link">
+                <div className="col-xs-3 col-sm-2">
+                  <img
+                    className="imgUser"
+                    src={this.state.eventDetails.author.pictureUrl}
+                  />
+                </div>
+                <div className="col-xs-3 col-sm-2">
+                  <p>{this.state.eventDetails.author.username}</p>
+                </div>
                 <p>{this.props.elem.description}</p>
                 <p>{this.props.elem.city}</p>
-              </Link>}
-              
-              <button className="addUserPlan" onClick={e=>this.addUser(e)}>Apuntate al plan</button>
+              </Link>
+            )}
+
+            <button className="addUserPlan" onClick={e => this.addUser(e)}>
+              Apuntate al plan
+            </button>
             <div>
-              <ModalMoreInfo info={this.props.elem} arrayPlan={this.state.arrayPlan}/>
+              <ModalMoreInfo
+                info={this.props.elem}
+                arrayPlan={this.state.arrayPlan}
+              />
             </div>
           </div>
         </div>
-      </div>;
+      </div>
+    );
   }
 }

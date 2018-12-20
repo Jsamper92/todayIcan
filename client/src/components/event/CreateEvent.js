@@ -51,28 +51,19 @@ export default class CreateEvent extends Component {
   }
   render() {
     return (
-        
+    
       <div>
           <NavBar logout={()=>{this.logout()}}/>
-            <div className="cardEvent">
+            <div className="cardEvent ">
+                <h3>Hola {this.props.usuarios.username},¿Quieres crear un evento?</h3>
                 <div className="row">
                     <div className="data-post">
-                    <h3>Hola {this.props.usuarios.username},¿Quieres crear un evento?</h3>
-                        <form onSubmit={this.handleFormSubmit}>
+                   
+                        <form className="formCreateEvent" onSubmit={this.handleFormSubmit}>
                             <input type="text" name="description" placeholder="description" onChange={e => this.handleChange(e)} />
                             <input type="text" name="city" placeholder="city" onChange={e => this.handleChange(e)} />
-                            <input type="submit" value="createEvent" onClick={e => this.handleChange(e)}/>
+                            <input type="submit" value="Crear Evento" onClick={e => this.handleChange(e)}/>
                         </form>
-                       
-                        {/* <div className="map">
-                            <MapContainer {...this.state}/>
-                        </div> */}
-
-                        
-                        
-                        <div className="comments">
-                            <div>Comments</div>
-                        </div>
                     </div>
                 </div>
             </div>
