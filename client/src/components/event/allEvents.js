@@ -17,8 +17,10 @@ export default class allEvents extends Component {
     retrive = () => {
       this.eventService.showEvents()
       .then(res=>{
-        console.log(res)
-        this.setState({...this.state, allEvents:[res.data]})
+        let allEvents = res.data.reverse()
+        this.setState({ ...this.state,
+          allEvents: [allEvents]
+        })
        
       })
     }
@@ -29,11 +31,11 @@ export default class allEvents extends Component {
     }
     
   render() {
-    
+    this.retrive()
     return (
       <div className="cardEvent">
         {
-          this.state.allEvents && this.state.allEvents[0].reverse().map((elem,index) => {
+          this.state.allEvents && this.state.allEvents[0].map((elem,index) => {
           
           return (
              <BoxEvent key={index} elem={elem} usuarios={this.props.usuarios}/>

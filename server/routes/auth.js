@@ -38,7 +38,8 @@ authRoutes.post("/login", function (req, res, next) {
 authRoutes.post("/signup", uploadCload.single("photo"), (req, res, next) => {
   const {
     username,
-    password
+    password,
+    description
   } = req.body;
   const pictureUrl = req.file.url;
 
@@ -66,6 +67,7 @@ authRoutes.post("/signup", uploadCload.single("photo"), (req, res, next) => {
     const newUser = new User({
       username,
       password: hashPass,
+      description,
       pictureUrl
     });
 
@@ -76,7 +78,7 @@ authRoutes.post("/signup", uploadCload.single("photo"), (req, res, next) => {
         });
       } else {
         req.login(user, (err) => {
-
+          console.log("x")
           if (err) {
             res.status(500).json({
               message: 'Login after signup went bad.'

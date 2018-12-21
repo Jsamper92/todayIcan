@@ -55,6 +55,7 @@
         width: 80px;
         height: 90px;
         float: left;
+        
 }
 
 .map{
@@ -73,19 +74,48 @@
 }
 
 .formCreateEvent{
-        width: 620px;
-        margin-left: 20px;
+            width: 620px;
+            display: flex;
+            height: 200px;
+            flex-direction: column;
+            justify-content: stretch;
+            align-items: center;
 }
 
-.formCreateEvent input {
-        margin: 10px;
-        width: 300px;
-        height: 30px;
+
+
+.formCreateEvent button{
+        display: flex;
+        flex-direction: column;
+        height: 10%;
         text-align: center;
         border-radius: 53px 54px 54px 54px;
         -moz-border-radius: 53px 54px 54px 54px;
         -webkit-border-radius: 53px 54px 54px 54px;
         border: 18px;
+}
+
+.inputButton{
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px !important;
+            margin-left: 100px;
+}
+
+.formCreateEvent input {
+        width: 300px;
+        display: flex;
+        height: 30px;
+        flex-direction: column;
+        text-align: center;
+        border-radius: 53px 54px 54px 54px;
+        -moz-border-radius: 53px 54px 54px 54px;
+        -webkit-border-radius: 53px 54px 54px 54px;
+        border: 18px;
+        margin: 10px;
+        text-align: center;
 }
 
 .row{
@@ -101,4 +131,19 @@
 
 .col-xs-3 {
         width: 25%;
+}
+
+.boxEventUserProfile{
+        width: 40%;
+        
+}
+
+.containerEvents{
+        display: flex;
+        justify-content: center;
+}
+
+.bodyProfile{
+        height: 800px;
+        padding-top: 10px;
 }

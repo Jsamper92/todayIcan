@@ -21,25 +21,25 @@ export default class ModalMoreInfo extends React.Component {
     this.eventService = new EventService();
   }
 
-  retrive = id => {
-    this.eventService.showEventId("5c1120b8546f7c92899c1617").then(res => {
-      this.setState({ ...this.state, allEventsModal: [res.data] });
-    });
-  };
+  // retrive = id => {
+  //   this.eventService.showEventId(id).then(res => {
+  //     this.setState({ ...this.state, allEventsModal: [res.data] });
+  //   });
+  // };
 
-  handleClick = id => {
-    this.eventService
-      .showEventId(id)
-      .then(res => {
-        this.setState({ ...this.state, eventDetails: res.data });
-      })
-      .catch(err => console.log(err));
-  };
+  // handleClick = id => {
+  //   this.eventService
+  //     .showEventId(id)
+  //     .then(res => {
+  //       this.setState({ ...this.state, eventDetails: res.data });
+  //     })
+  //     .catch(err => console.log(err));
+  // };
 
-  componentWillMount() {
-    this.retrive();
+  // componentWillMount() {
+  //   this.retrive();
     
-  }
+  // }
 
   toggle = id => {
     this.eventService
@@ -61,9 +61,11 @@ export default class ModalMoreInfo extends React.Component {
           <div className="closeModal">
             <i className="fas fa-times" onClick={this.toggle} />
           </div>
+          
           <div className="textModal" >
-            <p>{this.props.info.description}</p>
-            <p>{this.props.info.city}</p>
+          <h1>Evento</h1>
+            <p><strong>Descripcion:</strong>{this.props.info.description}</p>
+            <p><strong>City:</strong>{this.props.info.city}</p>
             <h1>Asistentes al evento:</h1>
             <p>{this.props.arrayPlan}</p>
           </div>

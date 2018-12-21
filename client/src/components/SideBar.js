@@ -22,7 +22,8 @@ export default class SideBar extends Component {
 
           
           <p className="text-center user-description hidden-xs">
-            <i>{this.props.user && this.props.user.description}</i>
+          <p>{this.props.usuarios && this.props.usuarios.username}</p>
+            <p>{this.props.usuarios && this.props.usuarios.description}</p>
           </p>
         </div>
       </div>

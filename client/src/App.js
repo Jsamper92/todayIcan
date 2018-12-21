@@ -36,7 +36,6 @@ class App extends Component {
   };
 
   logout = () => {
-    console.log('asdf')
     this.authService.logout()
     .then((res) => {
       console.log(res)
@@ -61,8 +60,9 @@ class App extends Component {
       </div>
     ) : (
       <div>
-        <p>No user</p>
-        <Link to="/signup">Signup</Link> - <Link to="/login">Login</Link>
+        
+        {/* <Link to="/signup">Signup</Link> - <Link to="/login">Login</Link> */}
+        <Signup component={Login} getUser={this.getUser} />
       </div>
     );
 

@@ -51,6 +51,7 @@ export default class CreateEvent extends Component {
   }
 
   render() {
+      console.log(this.state)
     return (
     
       <div>
@@ -63,7 +64,7 @@ export default class CreateEvent extends Component {
                         <form className="formCreateEvent" onSubmit={this.handleFormSubmit}>
                             <input type="text" name="description" placeholder="description" onChange={e => this.handleChange(e)} />
                             <input type="text" name="city" placeholder="city" onChange={e => this.handleChange(e)} />
-                            <input type="submit" value="Crear Evento" onClick={e => this.handleChange(e)}/>
+                            <input className="inputButton" type="submit" value="Crear Evento" onClick={e => this.handleChange(e)}/>
                         </form>
                     </div>
                 </div>
